@@ -3,8 +3,6 @@
 The Travel Buddy is meant to help make it easier to plan out your travel plans (or your every day adventures).
 
 It's an app with the ability to search for places to go and add it to a personalized to-do list that you can check off. 
-
-You can also mark off the visited location and add it to the "Places I've Been" list and add comments/notes about the place (e.g., in case you need to remember that this location had the best view in the city, or to let a friend know of the best dish to order at the restaurant, or if you need to remember to never come back to this place again)
 ___
 
 ## The Story Behind The App
@@ -22,9 +20,8 @@ ___
 
 ## User Stories
 - As a user, I want to be able to create a personalized account so that I can track/save my lists
-- As a user, I want to be able to add to/remove from a list of "Places I Want To Go"
-- As a user, I want to be able to add to/remove from a list of "Places That I've Been".
-- As a user, I want to be able to add notes on the "Places that I've been"
+- As a user, I want to be able to add to/remove from a list of "Places"
+- As a user, I want to be able to add "Notes" on to those saved "Places"
 ___
 
 ## Routing Chart
@@ -33,18 +30,18 @@ ___
 | GET | / | Home - login page
 | GET | /new | Page to create a new user
 | POST | /new | Adds new user created to database
-| GET | /user | Displays user's main page with a search bar shown and nav bar of "Places To Go" / "Places I've Been"
+| GET | /user | Displays user's main page with a search bar shown and nav bar
 | PUT | /user | Edit user's information
+| GET | /user/edit | Page to edit user's information
 | GET | /user/profile | Page with user's profile information
-| GET | /user/results | Generates a list from the user's search
-| POST | /user/results | Adds the chosen location from the generated search list to the user's "Places To Go" or "Places I've Been" list.
-| GET | /user/togo | Page with list of user's "Places To Go"
-| POST | /user/togo/ | Add the selected location from user's "Places To Go" list into the "Places I've Been" list
-| DELETE | /user/togo/ | Deletes a location added to the user's "Places To Go" list and redirects to /user/togo
-| GET | /user/togo/:id | Page with specifically chosen location from "Places To Go" list
-| GET | /user/been | Page with list of user's "Places I've Been"
-| DELETE | /user/been/ | Deletes a location added to the user's "Places I've Been" list and redirects to /user/been
-| GET | /user/been/:id | Page with specifically chosen location from "Places I've Been" list
+| GET | /results | Generates a list from the user's search
+| POST | /results | Adds the chosen location from the generated search list to the user's "Places" list
+| GET | /places | Page with list of user's saved places to go
+| DELETE | /places/ | Deletes a location added to the user's list
+| GET | /places/:id | Page with specifically chosen location from "Places" list
+| POST | /places | Add a "note" to one of the saved "places"
+| GET | /notes | Page with list of user's saved notes
+| DELETE | /notes | Delete a created note
 ___
 
 ## ERDs
@@ -67,7 +64,7 @@ ___
 
 ## MVP Checklist
 - [ ] All links/nav bar work appropriately to navigate from one page to another
-- [ ] Logging in will allow you to save to a list of "Places To Go" and/or "Places I've Been"
+- [ ] Logging in will allow you to save to a list of "Places" and add "notes"
 - [ ] Completing a search for a place to go will accurately redirect/return to a page with results
 - [ ] Deleting from a list will accurately remove the location from the database and then redirect the user to the list page
 - [ ] Users have the ability to attach notes/comments to the locations they've saved/added
@@ -75,7 +72,7 @@ ___
 ___
 
 ## Stetch Goals
-- [ ] Add comments/notes functionality to the "Places To Go" list
+- [ ] Distinguish between "Places To Go" and "Places I've Been" and generate separate pages that display both types
 - [ ] Implement a map API
 - [ ] Create a social page to share thoughts/ideas/opinions/reviews about visited locations
 ___
