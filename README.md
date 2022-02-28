@@ -51,8 +51,8 @@ ___
 ![ERD image](The-Travel-Buddy.drawio.png)
 ___
 
-## Wire Frames
-
+## Wireframes
+![wireframe image](/The-Travel-Buddy-Wireframe.drawio.png)
 ___
 ## Tech Utilized
 - HTML
@@ -66,18 +66,18 @@ ___
 ___
 
 ## MVP Checklist
-- [] All links/nav bar work appropriately to navigate from one page to another
-- [] Logging in will allow you to save to a list of "Places To Go" and/or "Places I've Been"
-- [] Completing a search for a place to go will accurately redirect/return to a page with results
-- [] Deleting from a list will accurately remove the location from the database and then redirect the user to the list page
-- [] Users have the ability to attach notes/comments to the locations they've saved/added
-- [] Users have the ability to edit their profiles
+- [ ] All links/nav bar work appropriately to navigate from one page to another
+- [ ] Logging in will allow you to save to a list of "Places To Go" and/or "Places I've Been"
+- [ ] Completing a search for a place to go will accurately redirect/return to a page with results
+- [ ] Deleting from a list will accurately remove the location from the database and then redirect the user to the list page
+- [ ] Users have the ability to attach notes/comments to the locations they've saved/added
+- [ ] Users have the ability to edit their profiles
 ___
 
 ## Stetch Goals
-- [] Add comments/notes functionality to the "Places To Go" list
-- [] Implement a map API
-- [] Create a social page to share thoughts/ideas/opinions/reviews about visited locations
+- [ ] Add comments/notes functionality to the "Places To Go" list
+- [ ] Implement a map API
+- [ ] Create a social page to share thoughts/ideas/opinions/reviews about visited locations
 ___
 
 ## Code Highlights
