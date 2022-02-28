@@ -4,7 +4,7 @@ The Travel Buddy is meant to help make it easier to plan out your travel plans (
 
 It's an app with the ability to search for places to go and add it to a personalized to-do list that you can check off. 
 
-You can also mark off the visited location and add it to the "Places I've Been" list so that you can add comments/notes about the place (e.g., in case you need to remember that this location had the best view in the city, or to let a friend know of the best dish to order at the restaurant, or if you need to remember to never come back to this place again)
+You can also mark off the visited location and add it to the "Places I've Been" list and add comments/notes about the place (e.g., in case you need to remember that this location had the best view in the city, or to let a friend know of the best dish to order at the restaurant, or if you need to remember to never come back to this place again)
 ___
 
 ## The Story Behind The App
@@ -31,16 +31,20 @@ ___
 | Method | Path | Purpose |
 | ------ | ---- | ------- |
 | GET | / | Home - login page
-| GET | /user | User's main page with search bar available and nav bar up top "Places To Go" / "Places I've Been")
+| GET | /new | Page to create a new user
+| POST | /new | Adds new user created to database
+| GET | /user | Displays user's main page with a search bar shown and nav bar of "Places To Go" / "Places I've Been"
+| PUT | /user | Edit user's information
+| GET | /user/profile | Page with user's profile information
 | GET | /user/results | Generates a list from the user's search
 | POST | /user/results | Adds the chosen location from the generated search list to the user's "Places To Go" or "Places I've Been" list.
 | GET | /user/togo | Page with list of user's "Places To Go"
+| POST | /user/togo/ | Add the selected location from user's "Places To Go" list into the "Places I've Been" list
+| DELETE | /user/togo/ | Deletes a location added to the user's "Places To Go" list and redirects to /user/togo
 | GET | /user/togo/:id | Page with specifically chosen location from "Places To Go" list
-| POST | /user/togo/:id | Add the selected location from user's "Places To Go" list into the "Places I've Been" list
-| DELETE | /user/togo/:id | Deletes a location added to the user's "Places To Go" list and redirects to /user/togo
 | GET | /user/been | Page with list of user's "Places I've Been"
-| GET | /user/togo/:id | Page with specifically chosen location from "Places I've Been" list
-| DELETE | /user/been/:id | Deletes a location added to the user's "Places I've Been" list and redirects to /user/been
+| DELETE | /user/been/ | Deletes a location added to the user's "Places I've Been" list and redirects to /user/been
+| GET | /user/been/:id | Page with specifically chosen location from "Places I've Been" list
 
 
 ___
@@ -48,18 +52,30 @@ ___
 ## Wire Frames
 
 ___
+## Tech Utilized
+- HTML
+- CSS
+- JavaScript
+- Bootstrap
+- PostgreSQL
+- Node.js
+- Express
+- Sequelize
+___
 
 ## MVP Checklist
-- [] Links work appropriate to navigate from one page to another
+- [] All links/nav bar work appropriately to navigate from one page to another
 - [] Logging in will allow you to save to a list of "Places To Go" and/or "Places I've Been"
-- [] Searching for a place to go will accurately redirect to a page of results
-- [] 
-- []
-- []
+- [] Completing a search for a place to go will accurately redirect/return to a page with results
+- [] Deleting from a list will accurately remove the location from the database and then redirect the user to the list page
+- [] Users have the ability to attach notes/comments to the locations they've saved/added
+- [] Users have the ability to edit their profiles
 ___
 
 ## Stetch Goals
+- [] Add comments/notes functionality to the "Places To Go" list
 - [] Implement a map API
+- [] Create a social page to share thoughts/ideas/opinions/reviews about visited locations
 ___
 
 ## Code Highlights
@@ -67,3 +83,6 @@ ___
 ___
 
 ## Resources
+- https://www.yelp.com/developers/documentation/v3/get_started
+- https://github.com/Yelp/yelp-fusion#code-samples
+- https://github.com/tonybadguy/yelp-fusion
