@@ -1,0 +1,5 @@
+sequelize model:create --name user --attributes name:string,email:string,password:string
+
+sequelize model:create --name place --attributes name:string,yelpUrl:text,category:string
+
+sequelize model:create --name note --attributes note:text,beenThere:boolean
