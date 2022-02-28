@@ -45,8 +45,10 @@ ___
 | GET | /user/been | Page with list of user's "Places I've Been"
 | DELETE | /user/been/ | Deletes a location added to the user's "Places I've Been" list and redirects to /user/been
 | GET | /user/been/:id | Page with specifically chosen location from "Places I've Been" list
+___
 
-
+## ERDs
+![ERD image](The-Travel-Buddy.drawio.png)
 ___
 
 ## Wire Frames
