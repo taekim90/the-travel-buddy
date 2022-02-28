@@ -22,7 +22,7 @@ app.use(ejsLayouts)
 // ROUTES
 app.get('/', (req,res) => {
     const searchRequest = {
-        term: 'things to do',
+        term: 'hotels',
         location: 'portland',
     };
       
