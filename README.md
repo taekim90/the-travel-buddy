@@ -20,4 +20,50 @@ The Travel Buddy is my attempt to trim the information and functionality packed 
 3. Make notes/comments
 ___
 
+## User Stories
+- As a user, I want to be able to create a personalized account so that I can track/save my lists
+- As a user, I want to be able to add to/remove from a list of "Places I Want To Go"
+- As a user, I want to be able to add to/remove from a list of "Places That I've Been".
+- As a user, I want to be able to add notes on the "Places that I've been"
+___
+
+## Routing Chart
+| Method | Path | Purpose |
+| ------ | ---- | ------- |
+| GET | / | Home - login page
+| GET | /user | User's main page with search bar available and nav bar up top "Places To Go" / "Places I've Been")
+| GET | /user/results | Generates a list from the user's search
+| POST | /user/results | Adds the chosen location from the generated search list to the user's "Places To Go" or "Places I've Been" list.
+| GET | /user/togo | Page with list of user's "Places To Go"
+| GET | /user/togo/:id | Page with specifically chosen location from "Places To Go" list
+| POST | /user/togo/:id | Add the selected location from user's "Places To Go" list into the "Places I've Been" list
+| DELETE | /user/togo/:id | Deletes a location added to the user's "Places To Go" list and redirects to /user/togo
+| GET | /user/been | Page with list of user's "Places I've Been"
+| GET | /user/togo/:id | Page with specifically chosen location from "Places I've Been" list
+| DELETE | /user/been/:id | Deletes a location added to the user's "Places I've Been" list and redirects to /user/been
+
+
+___
+
 ## Wire Frames
+
+___
+
+## MVP Checklist
+- [] Links work appropriate to navigate from one page to another
+- [] Logging in will allow you to save to a list of "Places To Go" and/or "Places I've Been"
+- [] Searching for a place to go will accurately redirect to a page of results
+- [] 
+- []
+- []
+___
+
+## Stetch Goals
+- [] Implement a map API
+___
+
+## Code Highlights
+
+___
+
+## Resources
