@@ -2,4 +2,14 @@
 
 <% response.jsonBody.businesses.forEach(businesses => { %>
     <li><%= businesses.name %></li>
+    <img src="<%= businesses.image_url %>" alt="business image" width="300"/>
+    <p>Rating: <%= businesses.rating %></p>
+    <p>Review Count: <%= businesses.review_count %></p>
+    <p>Price: <%= businesses.price %></p>
+    <p>Address: <%= businesses.location.display_address %></p>
+    <p><a href=<%= businesses.url %> target="_blank">Business Website</a></p>
+
+    
+
+    <!-- <a href="<%= businesses.url %>" target="_blank"><button>Business Website</button></a> -->
 <% }) %>
