@@ -11,12 +11,13 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-    models.note.belongsTo(models.user)
-    models.note.belongsTo(models.place)
-
+      models.note.belongsTo(models.user)
+      models.note.belongsTo(models.place)
     }
   }
   note.init({
+    userId: DataTypes.INTEGER,
+    placeId: DataTypes.INTEGER,
     note: DataTypes.TEXT,
     beenThere: DataTypes.BOOLEAN
   }, {

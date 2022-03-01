@@ -9,7 +9,6 @@ const db = require('./models')
 const bcrypt = require('bcrypt')
 const methodOverride = require('method-override')
 
-
 'use strict';
 const yelp = require('yelp-fusion');
 const apiKey = process.env.YELP_API_KEY
@@ -39,6 +38,8 @@ app.use(async (req, res, next) => {
 })
 
 // CONTROLLERS
+app.use('/places', require('./controllers/places.js'))
+app.use('/notes', require('./controllers/notes.js'))
 
 // ROUTES
 // Home Page
@@ -46,11 +47,12 @@ app.get('/', (req, res) => {
     res.render('home.ejs')
 })
 
-// New User Page
+// Page to Create a New User
 app.get('/new', (req, res) => {
     res.render('users/new.ejs', {error: null})
 })
 
+// Page displayed after logging in as a user
 app.get('/user', (req, res) => {
     res.render('users/user.ejs')
 })
@@ -127,9 +129,9 @@ app.get('*', (req, res) => {
     res.render('404.ejs')
   })
 
-
-
 const PORT = process.env.PORT || 8000
 app.listen(PORT, () => {
     console.log(`Running on ${PORT}`)
 })
+
+
