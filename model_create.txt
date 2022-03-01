@@ -3,3 +3,5 @@ sequelize model:create --name user --attributes name:string,email:string,passwor
 sequelize model:create --name place --attributes name:string,yelpUrl:text,category:string
 
 sequelize model:create --name note --attributes note:text,beenThere:boolean
+
+sequelize model:create --name users_places --attributes userId:integer,placeId:integer
