@@ -99,6 +99,13 @@ app.post('/', async (req, res) => {
     }
 })
 
+app.get('/results', async (req, res) => {
+    res.render('results/results.ejs')
+})
+
+app.post('/results', async(req,res) => {
+    
+})
 
 // how to access yelp api
 // app.get('/', (req,res) => {
