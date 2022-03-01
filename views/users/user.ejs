@@ -3,7 +3,8 @@
 <h2> Name: <%= currentUser.name %> </h2>
 <h2> Email: <%= currentUser.email %> </h2>
 
-<form id="search" action="/user" method="POST">
-    <input type="text" placeholder="Enter Search Item Here" value="">
-    <button type="submit" id="search">SEARCH</button>
+<form id="search" action="/results" method="GET">
+    <input type="text" placeholder="Search Term: i.e., category, place, name" name="term">
+    <input type="text" placeholder="Location/City" name="location">
+    <button type="submit" id="search" onclick="href='/results'">SEARCH</button>
 </form>

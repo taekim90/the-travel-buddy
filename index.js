@@ -11,6 +11,8 @@ const methodOverride = require('method-override')
 
 'use strict';
 const yelp = require('yelp-fusion');
+const res = require('express/lib/response')
+const req = require('express/lib/request')
 const apiKey = process.env.YELP_API_KEY
 
 // MIDDLEWARE
@@ -53,12 +55,20 @@ app.get('/new', (req, res) => {
 })
 
 // Page displayed after logging in as a user
-app.get('/user', (req, res) => {
+app.get('/user', async (req, res) => {
     res.render('users/user.ejs')
+    // try {
+    //     const searchedTerm = await req.query.term
+    //     const searchedLocation = await req.query.location
+    //     console.log(searchedTerm)
+    //     console.log(searchedLocation)
+    // } catch(err) {
+    //     console.log(err)
+    // }
 })
 
 // New User Post Route
-app.post('/user', async (req,res) => {
+app.post('/new', async (req,res) => {
     console.log(req.body)
     const [newUser, created] = await db.user.findOrCreate({ // await db.user.findOrCreate will return 2 values. created info & boolean
         where: {email: req.body.email}
@@ -100,15 +110,35 @@ app.post('/', async (req, res) => {
 })
 
 app.get('/results', async (req, res) => {
-    res.render('results/results.ejs')
+    try {
+        const searchedTerm = await req.query.term
+        const searchedLocation = await req.query.location
+        console.log(searchedTerm)
+        console.log(searchedLocation)
+        
+        const searchRequest = {
+            term: searchedTerm,
+            location: searchedLocation,
+        };
+        
+        const client = yelp.client(apiKey);
+        
+        const response = await client.search(searchRequest)
+        console.log(response.jsonBody.businesses[0])
+        res.render('results/results.ejs', {response})
+        
+    } catch(err) {
+        console.log(err)
+    }
 })
 
-app.post('/results', async(req,res) => {
-    
+// Gets information from text entered into search bar
+app.get('/user', async (req,res) => {
+
 })
 
 // how to access yelp api
-// app.get('/', (req,res) => {
+// app.get('/yelp', (req,res) => {
 //     const searchRequest = {
 //         term: 'hotels',
 //         location: 'portland',
@@ -124,7 +154,7 @@ app.post('/results', async(req,res) => {
 //     .catch((error) => {
 //         console.log(error);
 //     });
-// })
+// }) 
 
 app.get('/logout', (req, res) => {
     console.log('logging out')
@@ -134,7 +164,7 @@ app.get('/logout', (req, res) => {
 
 app.get('*', (req, res) => {
     res.render('404.ejs')
-  })
+})
 
 const PORT = process.env.PORT || 8000
 app.listen(PORT, () => {
@@ -142,3 +172,27 @@ app.listen(PORT, () => {
 })
 
 
+
+
+// // wrap the if statement around all your routes that give you crud functionality
+// // this is to make sure you can't CRUD unless you are signed in
+// app.delete("/", async (req, res) => {
+//     if (req.cookies.userId) {
+//         try {
+//             const foundProject = await db.project.findOne({
+//                 where: {id: req.params.id},
+//             });
+//             res.render('webpage')
+//             if (req.cookies.userId === foundProject.userId) {
+//                 await foundProject.destroy();
+//             } else {
+//                 redirect
+//             }
+//         } catch (err) {
+//             console.log(err)
+//         }
+
+//     } else {
+//         res.redirect('/')
+//     }
+// })

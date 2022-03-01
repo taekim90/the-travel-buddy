@@ -1,1 +1,5 @@
-hello
+<h1>SEARCH RESULTS</h1>
+
+<% response.jsonBody.businesses.forEach(businesses => { %>
+    <li><%= businesses.name %></li>
+<% }) %>
