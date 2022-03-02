@@ -1,1 +1,21 @@
-THIS IS THE PLACES PAGE
+<a href="/notes">NOTES</a>
+
+<h1>List Of My Saved Places</h1>
+
+<% placesArray.forEach(place => { %>
+    <li>
+        <div> NAME: <%= place.name %> </div>
+        <div> CATEGORY: <%= place.category %> </div>
+        <div> YELP:<a href=<%= place.yelpUrl %> target="_blank">Website</a> </div>
+    </li>
+
+    <form id="" action="/places" method="POST">
+        <input type="hidden" name="name" value="<%= place.name %>">
+        <input type="hidden" name="yelpUrl" value="<%= place.yelpUrl %>">
+        <input type="hidden" name="category" value="<%= place.category %>">
+        <!-- <input type="hidden" name="email" value="<%= %>"> -->
+        <button type="submit" id="remove">REMOVE</button>
+    </form>
+
+
+<% }) %>
