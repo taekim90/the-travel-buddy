@@ -46,7 +46,7 @@ app.use('/notes', require('./controllers/notes.js'))
 // ROUTES
 // Home Page
 app.get('/', (req, res) => {
-    res.render('home.ejs')
+    res.render('home.ejs', {error: null})
 })
 
 // Page to Create a New User
@@ -55,16 +55,8 @@ app.get('/new', (req, res) => {
 })
 
 // Page displayed after logging in as a user
-app.get('/user', async (req, res) => {
+app.get('/user', (req, res) => {
     res.render('users/user.ejs')
-    // try {
-    //     const searchedTerm = await req.query.term
-    //     const searchedLocation = await req.query.location
-    //     console.log(searchedTerm)
-    //     console.log(searchedLocation)
-    // } catch(err) {
-    //     console.log(err)
-    // }
 })
 
 // New User Post Route
@@ -132,10 +124,22 @@ app.get('/results', async (req, res) => {
     }
 })
 
-// Gets information from text entered into search bar
-app.get('/user', async (req,res) => {
-
+app.get('/logout', (req, res) => {
+    console.log('logging out')
+    res.clearCookie('userId')
+    res.redirect('/')
 })
+
+app.get('*', (req, res) => {
+    res.render('404.ejs')
+})
+
+const PORT = process.env.PORT || 8000
+app.listen(PORT, () => {
+    console.log(`Running on ${PORT}`)
+})
+
+
 
 // how to access yelp api
 // app.get('/yelp', (req,res) => {
@@ -155,22 +159,6 @@ app.get('/user', async (req,res) => {
 //         console.log(error);
 //     });
 // }) 
-
-app.get('/logout', (req, res) => {
-    console.log('logging out')
-    res.clearCookie('userId')
-    res.redirect('/')
-})
-
-app.get('*', (req, res) => {
-    res.render('404.ejs')
-})
-
-const PORT = process.env.PORT || 8000
-app.listen(PORT, () => {
-    console.log(`Running on ${PORT}`)
-})
-
 
 
 
