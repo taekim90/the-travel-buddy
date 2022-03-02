@@ -39,9 +39,11 @@ app.use(async (req, res, next) => {
     next() // next is a callback that tells it to move on to the next middleware
 })
 
+
 // CONTROLLERS
 app.use('/places', require('./controllers/places.js'))
 app.use('/notes', require('./controllers/notes.js'))
+
 
 // ROUTES
 // Home Page
@@ -49,14 +51,33 @@ app.get('/', (req, res) => {
     res.render('home.ejs', {error: null})
 })
 
-// Page to Create a New User
-app.get('/new', (req, res) => {
-    res.render('users/new.ejs', {error: null})
+// Logging In
+app.post('/', async (req, res) => {
+    const user = await db.user.findOne({where: {email: req.body.email}})
+    if(!user) {
+        console.log('the user was not found!')
+        res.render('home.ejs', {error: 'Invalid email/password'})
+    } else if (!bcrypt.compareSync(req.body.password, user.password)) { 
+        console.log('incorrect password')
+        res.render('home.ejs', {error: 'Invalid email/password'})
+    } else {
+        console.log('logging in the user!')
+        const encryptedUserId = cryptojs.AES.encrypt(user.id.toString(), process.env.SECRET)                                                                                      
+        const encryptedUserIdString = encryptedUserId.toString() 
+        console.log(encryptedUserIdString)
+        res.cookie('userId', encryptedUserIdString) // cookie is an object. userId is the key, encryptedUserIdString is the value
+        res.redirect('/user')
+    }
 })
 
 // Page displayed after logging in as a user
 app.get('/user', (req, res) => {
     res.render('users/user.ejs')
+})
+
+// Page to Create a New User
+app.get('/new', (req, res) => {
+    res.render('users/new.ejs', {error: null})
 })
 
 // New User Post Route
@@ -82,25 +103,45 @@ app.post('/new', async (req,res) => {
     }
 })
 
-// Logging In
-app.post('/', async (req, res) => {
-    const user = await db.user.findOne({where: {email: req.body.email}})
-    if(!user) {
-        console.log('the user was not found!')
-        res.render('home.ejs', {error: 'Invalid email/password'})
-    } else if (!bcrypt.compareSync(req.body.password, user.password)) { 
-        console.log('incorrect password')
-        res.render('home.ejs', {error: 'Invalid email/password'})
-    } else {
-        console.log('logging in the user!')
-        const encryptedUserId = cryptojs.AES.encrypt(user.id.toString(), process.env.SECRET)                                                                                      
-        const encryptedUserIdString = encryptedUserId.toString() 
-        console.log(encryptedUserIdString)
-        res.cookie('userId', encryptedUserIdString) // cookie is an object. userId is the key, encryptedUserIdString is the value
-        res.redirect('/user')
+// Profile Page
+app.get('/profile', async (req, res) => {
+    // console.log('INFO :', await db.user.findOne({
+    //     where: {
+    //         id: res.locals.currentUser.id
+    //     }
+    // }))
+    try {
+        const currentUser = await db.user.findOne({
+            where: {
+                id: res.locals.currentUser.id}})
+        res.render('users/profile.ejs', {userInfo: currentUser})
+    } catch (err) {
+        console.log(err)
     }
 })
 
+// Edit Profile Information
+app.put('/profile', async (req, res) => {
+    try {
+        const currentUser = await db.user.findOne({
+            where: {
+                id: res.locals.currentUser.id
+            }
+        })
+        currentUser.update({
+            name: req.body.name,
+            email: req.body.email
+        })
+        await currentUser.save()
+        // console.log('CURRENT USER INFO: ', currentUser)
+        res.render('users/profile.ejs', {userInfo: currentUser})
+    } catch (err) {
+        console.log(err)
+    }
+})
+
+
+// Results Page
 app.get('/results', async (req, res) => {
     if (req.cookies.userId) {
 
@@ -127,6 +168,7 @@ app.get('/results', async (req, res) => {
     }
 })
 
+// Logging out will redirect to home page
 app.get('/logout', (req, res) => {
     console.log('logging out')
     res.clearCookie('userId')
