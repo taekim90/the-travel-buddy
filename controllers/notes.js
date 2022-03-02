@@ -7,27 +7,49 @@ require('dotenv').config()
 const yelp = require('yelp-fusion');
 const apiKey = process.env.YELP_API_KEY
 
-router.get('/', (req, res) => {
-    res.render('notes/notes.ejs')
+router.get('/', async (req, res) => {
+    try {
+        const savedNotes = await db.note.findAll({
+            include: [db.place]
+        })
+        res.render('notes/notes.ejs', {notesArray: savedNotes})
+    } catch (err) {
+        console.log(err)
+    }
 })
 
 router.post('/', async (req, res) => {
     try {
-
-        const savedNotes = await db.notes.findOrCreate({
+        const [note, noteAdded] = await db.note.findOrCreate({
             where: {
-                userId: req.body.userId,
-                placeId: req.body.placeId,
                 note: req.body.note,
+                userId: res.locals.currentUser.id,
+                placeId: req.body.id
             }
-        }) // findAll gives us an array
-
-        console.log(savedPlaces)
-        console.log(user)
-        res.render('notes/notes.ejs', {placesArray: savedPlaces})
+        })
     } catch (error) {
         console.log(error)
     }
 })
+
+router.delete('/', async (req, res) => {
+    // if (req.cookies.userId) {
+        try {
+            const foundNote = await db.note.findOne({
+                where: {
+                    note: req.body.note
+                },
+            })
+            await foundNote.destroy();
+            res.redirect('/notes')
+        } catch (err) {
+            console.log(err)
+        }
+    // } else {
+    //     res.redirect('/')
+    // }
+})
+
+
 
 module.exports = router

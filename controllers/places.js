@@ -18,20 +18,23 @@ router.get('/', async (req, res) => {
         //         id: res.locals.currentUser.dataValues.id
         //     }
         // })
-        const savedPlaces = await db.place.findAll({}) // findAll gives us an array
-        // const user = await db.user.findOne({
+        const savedPlaces = await db.place.findAll({
+            include: [db.user]
+        }) // findAll gives us an array
+        // savedPlaces.forEach(place => {
+        //     console.log(place.getUsers())
+        // });
+        // const foundPlace = await db.place.findOne({
         //     where: {
-        //         id: res.locals.currentUser.dataValues.id
+        //         id: 12
         //     }
         // })
-        // const savedNotes = await db.note.findAll({})
-        console.log(savedPlaces)
-        console.log(user)
+        // console.log(await foundPlace.getUsers())
+
         res.render('places/places.ejs', {placesArray: savedPlaces})
     } catch (error) {
         console.log(error)
     }
-    // res.render('places/places.ejs')
 })
 
 router.post('/', async (req, res) => {
@@ -44,13 +47,12 @@ router.post('/', async (req, res) => {
                 category: req.body.category,
             }
         })   
-        console.log("Place :", place.id)
-        console.log(place)
-        console.log("User :", res.locals.currentUser.dataValues.id)
-
+        // console.log("Place :", place.id)
+        // console.log(place)
+        // console.log("User :", res.locals.currentUser.dataValues.id)
         const user = await db.user.findOne({
             where: {
-                id: res.locals.currentUser.dataValues.id
+                id: res.locals.currentUser.id
             }
         })
     console.log(user)

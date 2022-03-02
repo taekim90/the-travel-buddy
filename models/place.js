@@ -13,7 +13,6 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       models.place.belongsToMany(models.user, {through: "users_places"})
       models.place.hasMany(models.note)
-
     }
   }
   place.init({

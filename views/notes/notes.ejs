@@ -1,2 +1,20 @@
-THIS IS THE NOTES PAGE
+<a href="/places">BACK TO SAVED PLACES</a>
 
+<h1>MY NOTES</h1>
+
+
+<% notesArray.forEach(note => { %>
+    <div class="saved-notes">
+        <li>
+            <!-- <div> PLACE: <%=  %> </div> -->
+            <div> NOTE: <%= note.note %> </div>
+        </li>
+        
+        <form id="" action="/notes/?_method=DELETE" method="POST">
+            <input type="hidden" name="note" value="<%= note.note %>">
+            <button type="submit" id="remove-note">REMOVE NOTE</button>
+        </form>
+        
+        <h1>__________</h1>
+    </div>
+<% }) %>

@@ -1,31 +1,40 @@
 <a href="/notes">NOTES</a>
 
+<a href="/user">NEW SEARCH</a>
+
 <h1>List Of My Saved Places</h1>
 
 <!-- if user id = the current id then display respective values on  -->
 
 
     <% placesArray.forEach(place => { %>
+
+
         <div class="saved-list">
 
-            <li>
-                <div> NAME: <%= place.name %> </div>
-                <div> CATEGORY: <%= place.category %> </div>
-                <div> YELP:<a href=<%= place.yelpUrl %> target="_blank">Website</a> </div>
-            </li>
-            
-            <form id="" action="/notes" method="POST">
-                <input type="text" name="note" id="note">
-                <button type="submit" id="note-button">ADD NOTE</button>
-            </form>
-            
-            <form id="" action="/places/?_method=DELETE" method="POST">
-                <input type="hidden" name="name" value="<%= place.name %>">
-                <input type="hidden" name="yelpUrl" value="<%= place.yelpUrl %>">
-                <input type="hidden" name="category" value="<%= place.category %>">
-                <button type="submit" id="remove-button">REMOVE FROM SAVED LIST</button>
-            </form>
-            
-            <h1>__________</h1>
+            <%# place.users.forEach(user => { %>
+                <%#  if (user === currentUser) { %>
+                    <li>
+                        <div> NAME: <%= place.name %> </div>
+                        <div> CATEGORY: <%= place.category %> </div>
+                        <div> YELP:<a href=<%= place.yelpUrl %> target="_blank">Website</a> </div>
+                    </li>
+                    
+                    <form id="" action="/notes" method="POST">
+                        <input type="text" name="note" id="note">
+                        <input type="hidden" name="id" value="<%= place.id %>">
+                        <button type="submit" id="add-note">ADD NOTE</button>
+                    </form>
+                    
+                    <form id="" action="/places/?_method=DELETE" method="POST">
+                        <input type="hidden" name="name" value="<%= place.name %>">
+                        <input type="hidden" name="yelpUrl" value="<%= place.yelpUrl %>">
+                        <input type="hidden" name="category" value="<%= place.category %>">
+                        <button type="submit" id="remove-place">REMOVE PLACE FROM SAVED LIST</button>
+                    </form>
+                    
+                    <h1>__________</h1>           
+                <%# } %>
+            <%# }) %>
         </div>
     <% }) %>
