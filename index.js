@@ -102,25 +102,28 @@ app.post('/', async (req, res) => {
 })
 
 app.get('/results', async (req, res) => {
-    try {
-        const searchedTerm = await req.query.term
-        const searchedLocation = await req.query.location
-        console.log(searchedTerm)
-        console.log(searchedLocation)
-        
-        const searchRequest = {
-            term: searchedTerm,
-            location: searchedLocation,
-        };
-        
-        const client = yelp.client(apiKey);
-        
-        const response = await client.search(searchRequest)
-        console.log(response.jsonBody.businesses[0])
-        res.render('results/results.ejs', {response})
-        
-    } catch(err) {
-        console.log(err)
+    if (req.cookies.userId) {
+
+        try {
+            const searchedTerm = await req.query.term
+            const searchedLocation = await req.query.location
+            console.log(searchedTerm)
+            console.log(searchedLocation)
+            
+            const searchRequest = {
+                term: searchedTerm,
+                location: searchedLocation,
+            };
+            
+            const client = yelp.client(apiKey);
+            
+            const response = await client.search(searchRequest)
+            console.log(response.jsonBody.businesses[0])
+            res.render('results/results.ejs', {response})
+            
+        } catch(err) {
+            console.log(err)
+        }
     }
 })
 

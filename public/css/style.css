@@ -2,6 +2,11 @@
     /* background-color: blue; */
 }
 
+.center{
+    display: flex;
+    justify-content: center; 
+}
+
 #error {
     display: flex;
     /* justify-content: center; */

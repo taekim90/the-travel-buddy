@@ -13,9 +13,20 @@ router.use(methodOverride('_method'));
 
 router.get('/', async (req, res) => {
     try {
+        // const user = await db.users_places.findOne({
+        //     where: {
+        //         id: res.locals.currentUser.dataValues.id
+        //     }
+        // })
         const savedPlaces = await db.place.findAll({}) // findAll gives us an array
-        const savedNotes = await db.note.findAll({})
+        // const user = await db.user.findOne({
+        //     where: {
+        //         id: res.locals.currentUser.dataValues.id
+        //     }
+        // })
+        // const savedNotes = await db.note.findAll({})
         console.log(savedPlaces)
+        console.log(user)
         res.render('places/places.ejs', {placesArray: savedPlaces})
     } catch (error) {
         console.log(error)
@@ -40,14 +51,34 @@ router.post('/', async (req, res) => {
         const user = await db.user.findOne({
             where: {
                 id: res.locals.currentUser.dataValues.id
-        }
-    })
+            }
+        })
     console.log(user)
     await place.addUser(user)
     // res.render('places/places.ejs')
     } catch (error) {
         console.log(error)
     }
+})
+
+router.delete('/', async (req, res) => {
+    // if (req.cookies.userId) {
+        try {
+            const foundPlace = await db.place.findOne({
+                where: {
+                    name: req.body.name,
+                    yelpUrl: req.body.yelpUrl,
+                    category: req.body.category
+                },
+            })
+            await foundPlace.destroy();
+            res.redirect('/places')
+        } catch (err) {
+            console.log(err)
+        }
+    // } else {
+    //     res.redirect('/')
+    // }
 })
 
 module.exports = router
