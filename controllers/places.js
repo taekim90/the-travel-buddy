@@ -18,20 +18,12 @@ router.get('/', async (req, res) => {
         //         id: res.locals.currentUser.dataValues.id
         //     }
         // })
-        const savedPlaces = await db.place.findAll({
-            include: [db.user]
-        }) // findAll gives us an array
-        // savedPlaces.forEach(place => {
-        //     console.log(place.getUsers())
-        // });
-        // const foundPlace = await db.place.findOne({
-        //     where: {
-        //         id: 12
-        //     }
-        // })
-        // console.log(await foundPlace.getUsers())
-
-        res.render('places/places.ejs', {placesArray: savedPlaces})
+        const foundPlaces = await res.locals.currentUser.getPlaces()
+        // console.log("SAVE PLACES DATA:", savedPlaces)
+        // console.log("CURRENT USER DATA:", currentUser)
+        res.render('places/places.ejs', {
+            placesArray: foundPlaces,
+        })
     } catch (error) {
         console.log(error)
     }
@@ -55,9 +47,7 @@ router.post('/', async (req, res) => {
                 id: res.locals.currentUser.id
             }
         })
-    console.log(user)
     await place.addUser(user)
-    // res.render('places/places.ejs')
     } catch (error) {
         console.log(error)
     }
