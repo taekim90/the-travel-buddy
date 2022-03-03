@@ -134,7 +134,7 @@ app.put('/profile', async (req, res) => {
     }
 })
 
-// Results Page
+// Search Results Page
 app.get('/results', async (req, res) => {
     if (req.cookies.userId) {
         try {
@@ -166,6 +166,7 @@ app.get('/logout', (req, res) => {
     res.redirect('/')
 })
 
+// Error Page
 app.get('*', (req, res) => {
     res.render('404.ejs')
 })

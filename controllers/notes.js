@@ -31,23 +31,17 @@ router.post('/', async (req, res) => {
 })
 
 router.delete('/', async (req, res) => {
-    // if (req.cookies.userId) {
-        try {
-            const foundNote = await db.note.findOne({
-                where: {
-                    note: req.body.note
-                },
-            })
-            await foundNote.destroy();
-            res.redirect('/notes')
-        } catch (err) {
-            console.log(err)
-        }
-    // } else {
-    //     res.redirect('/')
-    // }
+    try {
+        const foundNote = await db.note.findOne({
+            where: {
+                note: req.body.note
+            },
+        })
+        await foundNote.destroy();
+        res.redirect('/notes')
+    } catch (err) {
+        console.log(err)
+    }
 })
-
-
 
 module.exports = router
