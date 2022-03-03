@@ -63,12 +63,12 @@ ___
 ___
 
 ## MVP Checklist
-- [ ] All links/nav bar work appropriately to navigate from one page to another
-- [ ] Logging in will allow you to save to a list of "Places" and add "notes"
-- [ ] Completing a search for a place to go will accurately redirect/return to a page with results
-- [ ] Deleting from a list will accurately remove the location from the database and then redirect the user to the list page
-- [ ] Users have the ability to attach notes/comments to the locations they've saved/added
-- [ ] Users have the ability to edit their profiles
+- [X] All links/nav bar work appropriately to navigate from one page to another
+- [X] Logging in will allow you to save to a list of "Places" and add "notes"
+- [X] Completing a search for a place to go will accurately redirect/return to a page with results
+- [X] Deleting from a list will accurately remove the location from the appropriate database
+- [X] Users have the ability to attach notes/comments to the locations they've saved/added
+- [X] Users have the ability to edit their profiles
 ___
 
 ## Stetch Goals
