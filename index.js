@@ -50,7 +50,7 @@ app.get('/', (req, res) => {
     res.render('home.ejs', {error: null})
 })
 
-// Logging In
+// Logging In From Home Page
 app.post('/', async (req, res) => {
     const user = await db.user.findOne({where: {email: req.body.email}})
     if(!user) {
@@ -69,11 +69,6 @@ app.post('/', async (req, res) => {
     }
 })
 
-// Page displayed after logging in as a user
-app.get('/user', (req, res) => {
-    res.render('users/user.ejs')
-})
-
 // Page to Create a New User
 app.get('/new', (req, res) => {
     res.render('users/new.ejs', {error: null})
@@ -82,7 +77,7 @@ app.get('/new', (req, res) => {
 // New User Post Route
 app.post('/new', async (req,res) => {
     console.log(req.body)
-    const [newUser, created] = await db.user.findOrCreate({ // await db.user.findOrCreate will return 2 values. created info & boolean
+    const [newUser, created] = await db.user.findOrCreate({
         where: {email: req.body.email}
     })
     if(!created) {
@@ -90,7 +85,7 @@ app.post('/new', async (req,res) => {
         res.render('users/new.ejs', {error: 'Email Already Exists!'}) 
     } else {
         const hashedPassword = bcrypt.hashSync(req.body.password, 10) // takes 2 variables - plain text password & number of salt rounds
-        newUser.password = hashedPassword // now we change req.body.password to hashedPassword
+        newUser.password = hashedPassword
         newUser.name = req.body.name
         await newUser.save()
         // encrypt the user id via AES (advanced encryption standard)
@@ -102,8 +97,17 @@ app.post('/new', async (req,res) => {
     }
 })
 
+// Page displayed after logging in as a user
+app.get('/user', (req, res) => {
+    if (req.cookies.userId) {
+        res.render('users/user.ejs')
+    } else {
+        res.redirect('/')
+    }
+})
+
 // Profile Page
-app.get('/profile', async (req, res) => {
+app.get('/user/profile', async (req, res) => {
     try {
         const currentUser = await db.user.findOne({
             where: {
@@ -115,7 +119,7 @@ app.get('/profile', async (req, res) => {
 })
 
 // Edit Profile Information
-app.put('/profile', async (req, res) => {
+app.put('/user/profile', async (req, res) => {
     try {
         const currentUser = await db.user.findOne({
             where: {

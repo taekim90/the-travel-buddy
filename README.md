@@ -27,20 +27,20 @@ ___
 ## Routing Chart
 | Method | Path | Purpose |
 | ------ | ---- | ------- |
-| GET | / | Home - login page
+| GET | / | Home / login page
+| POST | / | Log in to user from home page
 | GET | /new | Page to create a new user
 | POST | /new | Adds new user created to database
-| GET | /user | Displays user's main page with a search bar shown and nav bar
-| PUT | /user | Edit user's information
-| GET | /user/edit | Page to edit user's information
-| GET | /user/profile | Page with user's profile information
-| GET | /results | Generates a list from the user's search
-| POST | /results | Adds the chosen location from the generated search list to the user's "Places" list
+| GET | /user | User's main page with a search bar displayed
+| GET | /user/profile | User's profile page
+| PUT | /user/profile | Edit user's information
+| GET | /results | A page with the generated list from the user's search
+| GET | /logout | User is logged out / cookies removed / and then redirected to home page
 | GET | /places | Page with list of user's saved places to go
-| DELETE | /places/ | Deletes a location added to the user's list
-| GET | /places/:id | Page with specifically chosen location from "Places" list
-| POST | /places | Add a "note" to one of the saved "places"
+| POST | /places | Add the selected place to the user's saved places list/page
+| DELETE | /places/ | Deletes a previously added location from the user's saved list
 | GET | /notes | Page with list of user's saved notes
+| POST | /notes | Adds a "note" to one of the saved "places"
 | DELETE | /notes | Delete a created note
 ___
 

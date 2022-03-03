@@ -4,7 +4,7 @@
 <h2>Email: <%= userInfo.email %> </h2>
 
 <p>If you would like to change your name, please update it here</p>
-<form id="" action="/profile/?_method=PUT"" method="POST">
+<form id="" action="/user/profile/?_method=PUT"" method="POST">
     <input type="text" name="name" placeholder="name" value="<%= userInfo.name %>" required>
     <button type="submit" id="update-info">UPDATE NAME</button>
 </form>
