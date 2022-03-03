@@ -12,6 +12,8 @@ router.get('/', async (req, res) => {
         const savedNotes = await db.note.findAll({
             include: [db.place]
         })
+        console.log("SAVED NOTES:", savedNotes)
+        // console.log(savedNotes[0].place.name)
         res.render('notes/notes.ejs', {notesArray: savedNotes})
     } catch (err) {
         console.log(err)

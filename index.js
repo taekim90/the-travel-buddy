@@ -99,7 +99,7 @@ app.post('/new', async (req,res) => {
         const encryptedUserIdString = encryptedUserId.toString()
         console.log(encryptedUserIdString)
         res.cookie('userId', encryptedUserIdString)
-        res.redirect('/')
+        res.redirect('/user')
     }
 })
 
