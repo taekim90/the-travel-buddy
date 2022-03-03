@@ -5,36 +5,27 @@
 <h1>List Of My Saved Places</h1>
 
 <h1> THE CURRENT USER IS <%= currentUser.name%>  </h1>
-<!-- <h1> THE CURRENT USER IS <% currentUser.id%>  </h1> -->
-
-<%=  %> 
 
 <% placesArray.forEach(place => { %>
-    <!-- if current user id === the place's userId, then display the place -->
     <div class="saved-list">
-        <%# place.users.forEach(user => { %>
-            <%#  if (user === currentUser) { %>
-                <li>
-                    <div> NAME: <%= place.name %> </div>
-                    <div> CATEGORY: <%= place.category %> </div>
-                    <div> YELP:<a href=<%= place.yelpUrl %> target="_blank">Website</a> </div>
-                </li>
+        <li>
+            <div> NAME: <%= place.name %> </div>
+            <div> CATEGORY: <%= place.category %> </div>
+            <div> YELP:<a href=<%= place.yelpUrl %> target="_blank">Website</a> </div>
+        </li>
                     
-                <form id="" action="/notes" method="POST">
-                    <input type="text" name="note" id="note">
-                    <input type="hidden" name="id" value="<%= place.id %>">
-                    <button type="submit" id="add-note">ADD NOTE</button>
-                </form>
-                    
-                <form id="" action="/places/?_method=DELETE" method="POST">
-                    <input type="hidden" name="name" value="<%= place.name %>">
-                    <input type="hidden" name="yelpUrl" value="<%= place.yelpUrl %>">
-                    <input type="hidden" name="category" value="<%= place.category %>">
-                    <button type="submit" id="remove-place">REMOVE PLACE FROM SAVED LIST</button>
-                </form>
-                
-                <h1>__________</h1>           
-            <%# } %>
-        <%# }) %>
+        <form id="" action="/notes" method="POST">
+            <input type="text" name="note" id="note">
+            <input type="hidden" name="id" value="<%= place.id %>">
+            <button type="submit" id="add-note">ADD NOTE</button>
+        </form>
+        
+        <form id="" action="/places/?_method=DELETE" method="POST">
+            <input type="hidden" name="id" value="<%= place.id %>">
+
+            <button type="submit" id="remove-place">REMOVE PLACE FROM SAVED LIST</button>
+        </form>
+        
+        <h1>__________</h1>           
     </div>
 <% }) %>

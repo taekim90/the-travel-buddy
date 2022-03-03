@@ -2,18 +2,16 @@ const express = require('express')
 const app = express() 
 const ejsLayouts = require('express-ejs-layouts') 
 require('dotenv').config()
-// const axios = require('axios')
 const cookieParser = require('cookie-parser')
 const cryptojs = require('crypto-js')
 const db = require('./models')
 const bcrypt = require('bcrypt')
 const methodOverride = require('method-override')
-
+// for yelp api
 'use strict';
 const yelp = require('yelp-fusion');
-const res = require('express/lib/response')
-const req = require('express/lib/request')
 const apiKey = process.env.YELP_API_KEY
+
 
 // MIDDLEWARE
 app.set('view engine', 'ejs')
@@ -22,6 +20,7 @@ app.use('/', express.static('public'))
 app.use(cookieParser()) // gives us access to req.cookies
 app.use(express.urlencoded({extended: false})) // body parser (to make req.body work)
 app.use(methodOverride('_method'))
+
 
 // CUSTOM LOGIN MIDDLEWARE
 app.use(async (req, res, next) => {
@@ -105,11 +104,6 @@ app.post('/new', async (req,res) => {
 
 // Profile Page
 app.get('/profile', async (req, res) => {
-    // console.log('INFO :', await db.user.findOne({
-    //     where: {
-    //         id: res.locals.currentUser.id
-    //     }
-    // }))
     try {
         const currentUser = await db.user.findOne({
             where: {
@@ -181,48 +175,3 @@ app.listen(PORT, () => {
     console.log(`Running on ${PORT}`)
 })
 
-
-
-// how to access yelp api
-// app.get('/yelp', (req,res) => {
-//     const searchRequest = {
-//         term: 'hotels',
-//         location: 'portland',
-//     };
-      
-//     const client = yelp.client(apiKey);
-      
-//     client.search(searchRequest)
-//     .then((response) => {
-//         console.log(response.jsonBody);
-//         res.json(response.jsonBody)
-//     })
-//     .catch((error) => {
-//         console.log(error);
-//     });
-// }) 
-
-
-
-// // wrap the if statement around all your routes that give you crud functionality
-// // this is to make sure you can't CRUD unless you are signed in
-// app.delete("/", async (req, res) => {
-//     if (req.cookies.userId) {
-//         try {
-//             const foundProject = await db.project.findOne({
-//                 where: {id: req.params.id},
-//             });
-//             res.render('webpage')
-//             if (req.cookies.userId === foundProject.userId) {
-//                 await foundProject.destroy();
-//             } else {
-//                 redirect
-//             }
-//         } catch (err) {
-//             console.log(err)
-//         }
-
-//     } else {
-//         res.redirect('/')
-//     }
-// })

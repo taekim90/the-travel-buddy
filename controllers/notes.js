@@ -1,11 +1,6 @@
 const express = require('express')
 const router = express.Router()
 const db = require('../models')
-require('dotenv').config()
-
-'use strict';
-const yelp = require('yelp-fusion');
-const apiKey = process.env.YELP_API_KEY
 
 router.get('/', async (req, res) => {
     try {
@@ -22,6 +17,7 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
     try {
+        console.log(req.body)
         const [note, noteAdded] = await db.note.findOrCreate({
             where: {
                 note: req.body.note,

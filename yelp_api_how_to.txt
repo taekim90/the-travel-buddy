@@ -1,0 +1,22 @@
+'use strict';
+const yelp = require('yelp-fusion');
+const apiKey = process.env.YELP_API_KEY
+
+// how to access yelp api
+// app.get('/yelp', (req,res) => {
+//     const searchRequest = {
+//         term: 'hotels',
+//         location: 'portland',
+//     };
+      
+//     const client = yelp.client(apiKey);
+      
+//     client.search(searchRequest)
+//     .then((response) => {
+//         console.log(response.jsonBody);
+//         res.json(response.jsonBody)
+//     })
+//     .catch((error) => {
+//         console.log(error);
+//     });
+// }) 
