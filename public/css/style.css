@@ -53,10 +53,6 @@ p {
     margin: 0vh 0vh 10vh 0vh;
 }
 
-.vertical-top-bottom {
-    margin: .2vh 0vh .2vh 0vh;
-}
-
 .small-space {
     margin: 0vh 1vh 0vh 1vh;
 }
@@ -97,6 +93,9 @@ p {
     .flex-direction {
         display: flex;
         flex-direction: column;
+    }
+    .vertical-top-bottom {
+        margin: 1vh 0vh 0vh 0vh;
     }
     #bigger-font {
         font-size: 1.5em
