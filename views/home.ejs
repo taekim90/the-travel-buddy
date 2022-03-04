@@ -1,16 +1,16 @@
 <h2>Please Enter Your Login Information</h2>
 
-<form action="/" method="POST">
+<form class="center" action="/" method="POST">
     <label for="eamil">Email:</label>
-    <input type="email" name="email" id="email">
+    <input class ="spacer" type="email" name="email" id="email">
 
     <label for="password">Password:</label>
-    <input type="password" name="password" id="password">
+    <input class ="spacer type="password" name="password" id="password">
 
     <button type="submit">Login</button>
 </form>
 
-<div id="error">
+<div class="center" id="error">
     <% if (error) { %> 
         <em> <%= error %> </em> 
     <% } %> 

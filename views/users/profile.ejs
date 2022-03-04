@@ -1,10 +1,14 @@
-<h1>PROFILE PAGE</h1>
+<h2>PROFILE</h2>
 
-<h2>Name: <%= userInfo.name %> </h2>
-<h2>Email: <%= userInfo.email %> </h2>
+<div class="center">
+    <h3>Name: <%= userInfo.name %> </h3>
+</div>
+<div class="center">
+    <h3>Email: <%= userInfo.email %> </h3>
+</div>
 
-<p>If you would like to change your name, please update it here</p>
-<form id="" action="/user/profile/?_method=PUT"" method="POST">
+<p class="center">IF YOU WOULD LIKE TO CHANGE YOUR NAME, UPDATE IT HERE</p>
+<form class="center" id="" action="/user/profile/?_method=PUT"" method="POST">
     <input type="text" name="name" placeholder="name" value="<%= userInfo.name %>" required>
     <button type="submit" id="update-info">UPDATE NAME</button>
 </form>

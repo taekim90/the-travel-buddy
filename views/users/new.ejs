@@ -1,18 +1,27 @@
-<h1>CREATE NEW USER</h1>
+<h2>CREATE NEW USER</h2>
 
 <form action="/new" method="POST"> 
-    <label for="name">Name:</label>
-    <input type="text" name="name" id="name">
+    <div class="center vertical-space">
 
-    <label for="eamil">Email:</label>
-    <input type="email" name="email" id="email">
-    <!-- type tells the browser how to deal with and format -->
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name">
+    </div>
+    <div class="center vertical-space">
 
-    <label for="password">Password:</label>
-    <input type="password" name="password" id="password">
-    <!-- name="_____" - this needs to correspond with the req.body._____ -->
+        <label for="eamil">Email:</label>
+        <input type="email" name="email" id="email">
+        <!-- type tells the browser how to deal with and format -->
+    </div>
+    <div class="center vertical-space">
+        
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password">
+        <!-- name="_____" - this needs to correspond with the req.body._____ -->
+    </div>
 
-    <button type="submit">Sign up!</button>
+    <div class="center vertical-space">
+        <button type="submit">Sign up!</button>
+    </div>
 </form>
 
 <div id="error">

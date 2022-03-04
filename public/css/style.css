@@ -2,10 +2,35 @@
     /* background-color: blue; */
 }
 
+h2 {
+    display: flex;
+    justify-content: center; 
+    margin: 15vh 0vh 4vh 0vh;
+}
+
+p {
+    margin: 5vh 0vh 1vh 0vh;
+}
+
+input {
+    /* border-radius: 5px; */
+}
 
 .center{
     display: flex;
     justify-content: center; 
+}
+
+.spacer {
+    margin: 0vh 3vh 0vh .5vh;
+}
+
+.vertical-space {
+    margin: .5vh 0vh 0vh 0vh;
+}
+
+.small-space {
+    margin: 0vh 1vh 0vh 1vh;
 }
 
 #error {
@@ -14,9 +39,8 @@
 }
 
 #footer {
-    display: flex;
     position: fixed;
     bottom: 2vh;
     left: 50%;
-    justify-content: center;
+    transform: translate(-50%);
 }
