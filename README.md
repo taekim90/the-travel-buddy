@@ -38,7 +38,7 @@ ___
 | GET | /logout | User is logged out / cookies removed / and then redirected to home page
 | GET | /places | Page with list of user's saved places to go
 | POST | /places | Add the selected place to the user's saved places list/page
-| DELETE | /places/ | Deletes a previously added location from the user's saved list
+| DELETE | /places | Deletes a previously added location from the user's saved list
 | GET | /notes | Page with list of user's saved notes
 | POST | /notes | Adds a "note" to one of the saved "places"
 | DELETE | /notes | Delete a created note
