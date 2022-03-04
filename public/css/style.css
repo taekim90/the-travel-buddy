@@ -16,6 +16,11 @@ input {
     /* border-radius: 5px; */
 }
 
+.sticky {
+    position: sticky;
+    top: 0;
+}
+
 .center{
     display: flex;
     justify-content: center; 
