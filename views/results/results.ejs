@@ -1,22 +1,20 @@
-<a class="center" href="/user">NEW SEARCH</a>
-
-<a class="center" href="/places">SAVED PLACES</a>
-
-<h3 class="center big-vertical">SEARCH RESULTS</h3>
+<h2>SEARCH RESULTS</h2>
 
 <% response.jsonBody.businesses.forEach(businesses => { %>
-    <li><%= businesses.name %></li>
-    <img src="<%= businesses.image_url %>" alt="business image" width="40%"/>
-    <p>Rating: <%= businesses.rating %></p>
-    <p>Review Count: <%= businesses.review_count %></p>
-    <p>Price: <%= businesses.price %></p>
-    <p>Address: <%= businesses.location.display_address %></p>
-    <p><a href=<%= businesses.url %> target="_blank">Yelp Website</a></p>
-    
-    <form id="" action="/places" method="POST">
-        <input type="hidden" name="name" value="<%= businesses.name %>">
-        <input type="hidden" name="yelpUrl" value="<%= businesses.url %>">
-        <input type="hidden" name="category" value="<%= businesses.categories[0].alias %>">
-        <button type="submit" id="add">ADD TO PLACES</button>
-    </form>    
+    <div class="places">
+        <div id="bigger-font"><%= businesses.name %></div>
+        <img src="<%= businesses.image_url %>" alt="business image" width="50%"/>
+        <div><a href=<%= businesses.url %> target="_blank">Yelp Website</a></div>
+        <div>Rating: <%= businesses.rating %></div>
+        <div>Review Count: <%= businesses.review_count %></div>
+        <div>Price: <%= businesses.price %></div>
+        <div>Address: <%= businesses.location.display_address %></div>
+        
+        <form id="" action="/places" method="POST">
+            <input type="hidden" name="name" value="<%= businesses.name %>">
+            <input type="hidden" name="yelpUrl" value="<%= businesses.url %>">
+            <input type="hidden" name="category" value="<%= businesses.categories[0].alias %>">
+            <button type="submit" id="add">ADD TO PLACES</button>
+        </form>    
+    </div>
 <% }) %>

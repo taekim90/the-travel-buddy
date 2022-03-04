@@ -1,14 +1,12 @@
-<h1>List Of My Saved Places</h1>
+<h2>List Of My Saved Places</h2>
 
-<h1> THE CURRENT USER IS <%= currentUser.name%>  </h1>
+<!-- <h3 class="center"> CURRENT USER : <%= currentUser.name%>  </h3> -->
 
 <% placesArray.forEach(place => { %>
-    <div class="saved-list">
-        <li>
+    <div class="saved-list places">
             <div> NAME: <%= place.name %> </div>
             <div> CATEGORY: <%= place.category %> </div>
             <div> YELP:<a href=<%= place.yelpUrl %> target="_blank">Website</a> </div>
-        </li>
                     
         <form id="" action="/notes" method="POST">
             <input type="text" name="note" id="note">
@@ -18,10 +16,8 @@
         
         <form id="" action="/places/?_method=DELETE" method="POST">
             <input type="hidden" name="id" value="<%= place.id %>">
-
             <button type="submit" id="remove-place">REMOVE PLACE FROM SAVED LIST</button>
         </form>
         
-        <h1>__________</h1>           
     </div>
 <% }) %>
