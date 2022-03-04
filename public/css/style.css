@@ -11,6 +11,7 @@ h2 {
 h5 {
     display: flex;
     align-items: flex-end;
+    justify-content: center;
 }
 
 p {
@@ -19,7 +20,7 @@ p {
 
 .places {
     margin: 0% 0% 0% 33%;
-    padding: 0% 0% 4% 0%;
+    padding: 0% 0% 5% 0%;
 }
 
 .notes {
@@ -52,6 +53,10 @@ p {
     margin: 0vh 0vh 10vh 0vh;
 }
 
+.vertical-top-bottom {
+    margin: .2vh 0vh .2vh 0vh;
+}
+
 .small-space {
     margin: 0vh 1vh 0vh 1vh;
 }
@@ -80,12 +85,20 @@ p {
     font-size: 1.4em
 }
 
-@media (max-width: 800px) {
+
+@media (max-width: 550px) {
     /* CSS that should be displayed if width is equal to or less than 800px goes here */
     .places {
         margin: 0% 0% 0% 0%;
     }
     .notes {
         padding: 2.5% 0% 0% 0%;
+    }
+    .flex-direction {
+        display: flex;
+        flex-direction: column;
+    }
+    #bigger-font {
+        font-size: 1.5em
     }
 }
