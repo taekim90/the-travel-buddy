@@ -80,7 +80,51 @@ ___
 ___
 
 ## Code Highlights
+```javascript
+'use strict';
+const yelp = require('yelp-fusion');
+const apiKey = process.env.YELP_API_KEY
 
+app.get('/results', async (req, res) => {
+    if (req.cookies.userId) {
+        try {
+            const searchedTerm = await req.query.term
+            const searchedLocation = await req.query.location
+            const searchRequest = {
+                term: searchedTerm,
+                location: searchedLocation,
+            };    
+            const client = yelp.client(apiKey);
+            const response = await client.search(searchRequest)
+            res.render('results/results.ejs', {response})
+        } catch(err) {
+            console.log(err)
+        }
+    }
+})
+```
+```javascript
+router.post('/', async (req, res) => {
+    console.log(req.body)
+    try {
+        const [place, placeCreated] = await db.place.findOrCreate({
+            where: {
+                name: req.body.name,
+                yelpUrl: req.body.yelpUrl,
+                category: req.body.category,
+            }
+        })   
+        const user = await db.user.findOne({
+            where: {
+                id: res.locals.currentUser.id
+            }
+        })
+    await place.addUser(user)
+    } catch (error) {
+        console.log(error)
+    }
+})
+```
 ___
 
 ## Resources
