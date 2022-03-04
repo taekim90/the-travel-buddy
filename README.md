@@ -73,10 +73,9 @@ ___
 ___
 
 ## Stetch Goals
-- [ ] Distinguish between "Places To Go" and "Places I've Been" and generate separate pages that display both types
+- [ ] Add functionality to organize notes / filter
 - [ ] Implement a map API
 - [ ] Create a social page to share thoughts/ideas/opinions/reviews about visited locations
-- [ ] Add functionality to organize notes / filter
 ___
 
 ## Code Highlights
