@@ -1,5 +1,8 @@
 # The Travel Buddy
 
+## Deployed Link
+
+## About
 The Travel Buddy is meant to help make it easier to plan out your travel plans (or your every day adventures).
 
 It's an app with the ability to search for places to go and add it to a personalized to-do list that you can check off. 
