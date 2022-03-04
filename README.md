@@ -8,13 +8,13 @@ ___
 ## The Story Behind The App
 When I make plans to go travel somewhere, I find that I use various apps to search for places I want to go, things I want to see, restaurants I want to eat at, etc.
 
-Each time I identify a place I'm interested in, I find myself using my Notes app on my phone to type out the place to visit and save it for later. Then I switch back to the search/travel apps to continue looking.
+Each time I identify a place I'm interested in, I find myself using the Notes app on my phone to type out the place to visit and save it for later. Then I switch back to the search/travel apps to continue looking.
 
 I also have experiences where I go to a restaurant and I order something delicious and I think to myself, "I'm going to have to order this again the next time I back". However, when the next time comes around, I don't even remember what it was I ordered and that's what I get for trying to trust my memory.
 
 The Travel Buddy is my attempt to trim the information and functionality packed features from other travel and search applications and combine it with a to-do list like system to provide an app that completes just 3 primary functions.
 1. Search for places to go
-2. Add to lists of places to go / places I've been
+2. Add to lists of places to go / places you've been
 3. Make notes/comments
 ___
 
@@ -42,6 +42,7 @@ ___
 | GET | /notes | Page with list of user's saved notes
 | POST | /notes | Adds a "note" to one of the saved "places"
 | DELETE | /notes | Delete a created note
+| GET | /about | An about page
 ___
 
 ## ERDs

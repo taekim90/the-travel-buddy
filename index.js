@@ -170,6 +170,11 @@ app.get('/logout', (req, res) => {
     res.redirect('/')
 })
 
+// About Page
+app.get('/about', (req, res) => {
+    res.render('about.ejs')
+})
+
 // Error Page
 app.get('*', (req, res) => {
     res.render('404.ejs')
