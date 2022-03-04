@@ -25,6 +25,7 @@ router.post('/', async (req, res) => {
                 placeId: req.body.id
             }
         })
+        res.redirect('/places')
     } catch (error) {
         console.log(error)
     }
