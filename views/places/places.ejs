@@ -9,14 +9,14 @@
             <div> YELP:<a href=<%= place.yelpUrl %> target="_blank">Website</a> </div>
                     
         <form id="" action="/notes" method="POST">
-            <input type="text" name="note" id="note">
+            <input class="form-control-sm" type="text" name="note" id="note inputSmall" size="40">
             <input type="hidden" name="id" value="<%= place.id %>">
-            <button type="submit" id="add-note">ADD NOTE</button>
+            <button class="btn btn-outline-success btn-sm" type="submit" id="add-note">ADD NOTE</button>
         </form>
         
         <form id="" action="/places/?_method=DELETE" method="POST">
             <input type="hidden" name="id" value="<%= place.id %>">
-            <button type="submit" id="remove-place">REMOVE PLACE FROM SAVED LIST</button>
+            <button class="btn btn-sm btn-outline-danger" type="submit" id="remove-place">REMOVE PLACE FROM SAVED LIST</button>
         </form>
         
     </div>

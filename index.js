@@ -132,7 +132,8 @@ app.put('/user/profile', async (req, res) => {
         })
         await currentUser.save()
         // console.log('CURRENT USER INFO: ', currentUser)
-        res.render('users/profile.ejs', {userInfo: currentUser})
+        // res.render('users/profile.ejs', {userInfo: currentUser})
+        res.redirect('/user/profile')
     } catch (err) {
         console.log(err)
     }
@@ -144,14 +145,12 @@ app.get('/results', async (req, res) => {
         try {
             const searchedTerm = await req.query.term
             const searchedLocation = await req.query.location
-            console.log(searchedTerm)
-            console.log(searchedLocation)
-            
+            // console.log(searchedTerm)
+            // console.log(searchedLocation)   
             const searchRequest = {
                 term: searchedTerm,
                 location: searchedLocation,
             };    
-
             const client = yelp.client(apiKey);
             
             const response = await client.search(searchRequest)
@@ -180,6 +179,7 @@ app.get('*', (req, res) => {
     res.render('404.ejs')
 })
 
+// Port
 const PORT = process.env.PORT || 8000
 app.listen(PORT, () => {
     console.log(`Running on ${PORT}`)

@@ -5,7 +5,7 @@
 h2 {
     display: flex;
     justify-content: center; 
-    margin: 12vh 0vh 4vh 0vh;
+    margin: 7vh 0vh 4vh 0vh;
 }
 
 p {
@@ -14,7 +14,7 @@ p {
 
 .places {
     margin: 0% 0% 0% 33%;
-    padding: 1.5% 0% 3.5% 0%;
+    padding: 0% 0% 4% 0%;
 }
 
 .notes {
@@ -41,6 +41,10 @@ p {
 
 .big-vertical {
     margin: 3vh 0vh 0vh 0vh;
+}
+
+.bigger-vertical{
+    margin: 0vh 0vh 10vh 0vh;
 }
 
 .small-space {

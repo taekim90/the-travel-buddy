@@ -1,21 +1,24 @@
 <h2>MY NOTES</h2>
 
-<% notesArray.forEach(note => { %>
+<div class="bigger-vertical">
+    <% notesArray.forEach(note => { %>
     <!-- if note has a place in database, display -->
-    <% if (note.place) { %>
+        <% if (note.place) { %>
         <!-- to only display current user's note -->
-        <% if (currentUser.id === note.userId) { %>
-            <div class="big-vertical notes">
+            <% if (currentUser.id === note.userId) { %>
+                <div class="notes">
                 <!-- because I used "include: [db.place] I have access to do note.place.name" -->
                 <div> PLACE: <%= note.place.name %> </div> 
                 <div> NOTE: <%= note.note %> </div>
-
+                
                 <form id="" action="/notes/?_method=DELETE" method="POST">
                     <input type="hidden" name="note" value="<%= note.note %>">
-                    <button type="submit" id="remove-note">REMOVE NOTE</button>
+                    <button class="btn-danger btn-sm" type="submit" id="remove-note">REMOVE NOTE</button>
                 </form>
             </div>
-        <% } %>
-    <% } %> 
-<% }) %>
-
+            <% } %>
+        <% } %> 
+    <% }) %>
+</div>
+                
+                
