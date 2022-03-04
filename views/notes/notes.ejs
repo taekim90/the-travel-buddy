@@ -8,7 +8,8 @@
             <% if (currentUser.id === note.userId) { %>
                 <div class="notes">
                 <!-- because I used "include: [db.place] I have access to do note.place.name" -->
-                <div> PLACE: <%= note.place.name %> </div> 
+                <div id="place-name"> <%= note.place.name %> </div> 
+                <!-- <div> CATEGORY: <%= note.place.category %> </div>  -->
                 <div> NOTE: <%= note.note %> </div>
                 
                 <form id="" action="/notes/?_method=DELETE" method="POST">
