@@ -20,6 +20,7 @@ app.use('/', express.static('public'))
 app.use(cookieParser()) // gives us access to req.cookies
 app.use(express.urlencoded({extended: false})) // body parser (to make req.body work)
 app.use(methodOverride('_method'))
+const PORT = process.env.PORT || 8000
 
 
 // CUSTOM LOGIN MIDDLEWARE
@@ -180,7 +181,6 @@ app.get('*', (req, res) => {
 })
 
 // Port
-const PORT = process.env.PORT || 8000
 app.listen(PORT, () => {
     console.log(`Running on ${PORT}`)
 })
