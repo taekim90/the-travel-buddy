@@ -1,12 +1,12 @@
-<a href="/user">NEW SEARCH</a>
+<a class="center" href="/user">NEW SEARCH</a>
 
-<a href="/places">GO TO SAVED PLACES</a>
+<a class="center" href="/places">SAVED PLACES</a>
 
-<h2>SEARCH RESULTS</h2>
+<h3 class="center big-vertical">SEARCH RESULTS</h3>
 
 <% response.jsonBody.businesses.forEach(businesses => { %>
     <li><%= businesses.name %></li>
-    <img src="<%= businesses.image_url %>" alt="business image" width="50%"/>
+    <img src="<%= businesses.image_url %>" alt="business image" width="40%"/>
     <p>Rating: <%= businesses.rating %></p>
     <p>Review Count: <%= businesses.review_count %></p>
     <p>Price: <%= businesses.price %></p>
@@ -17,9 +17,6 @@
         <input type="hidden" name="name" value="<%= businesses.name %>">
         <input type="hidden" name="yelpUrl" value="<%= businesses.url %>">
         <input type="hidden" name="category" value="<%= businesses.categories[0].alias %>">
-        <!-- <input type="hidden" name="email" value="<%= %>"> -->
         <button type="submit" id="add">ADD TO PLACES</button>
     </form>    
-
-    <!-- <a href="<%= businesses.url %>" target="_blank"><button>Business Website</button></a> -->
 <% }) %>

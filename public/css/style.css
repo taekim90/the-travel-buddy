@@ -34,6 +34,10 @@ input {
     margin: .5vh 0vh 0vh 0vh;
 }
 
+.big-vertical {
+    margin: 3vh 0vh 0vh 0vh;
+}
+
 .small-space {
     margin: 0vh 1vh 0vh 1vh;
 }
