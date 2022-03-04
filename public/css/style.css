@@ -24,7 +24,7 @@ p {
 }
 
 .notes {
-    padding: 2.5% 0% 0% 33%;
+    padding: 2.5% 28% 0% 28%;
 }
 
 .sticky {
@@ -82,7 +82,7 @@ p {
 }
 
 
-@media (max-width: 550px) {
+@media (max-width: 777px) {
     /* CSS that should be displayed if width is equal to or less than 800px goes here */
     .places {
         margin: 0% 0% 0% 0%;
@@ -96,6 +96,10 @@ p {
     }
     .vertical-top-bottom {
         margin: 1vh 0vh 0vh 0vh;
+    }
+    .flex-start{
+        display: flex;
+        justify-content: flex-start;
     }
     #bigger-font {
         font-size: 1.5em

@@ -3,7 +3,7 @@
 <% response.jsonBody.businesses.forEach(businesses => { %>
     <div class="center" id="bigger-font"><%= businesses.name %></div>
     <div class="places">
-        <img src="<%= businesses.image_url %>" alt="business image" width="50%"/>
+        <img src="<%= businesses.image_url %>" alt="business image" width="60%"/>
         <div><a href=<%= businesses.url %> target="_blank">Yelp Website</a></div>
         <div>Rating: <%= businesses.rating %></div>
         <div>Review Count: <%= businesses.review_count %></div>
