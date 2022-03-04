@@ -79,3 +79,13 @@ p {
 #place-name {
     font-size: 1.4em
 }
+
+@media (max-width: 800px) {
+    /* CSS that should be displayed if width is equal to or less than 800px goes here */
+    .places {
+        margin: 0% 0% 0% 0%;
+    }
+    .notes {
+        padding: 2.5% 0% 0% 0%;
+    }
+}
