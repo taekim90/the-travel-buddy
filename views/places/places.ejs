@@ -4,9 +4,9 @@
 
 <% placesArray.forEach(place => { %>
     <div class="saved-list places">
-            <div> NAME: <%= place.name %> </div>
-            <div> CATEGORY: <%= place.category %> </div>
-            <div> YELP:<a href=<%= place.yelpUrl %> target="_blank">Website</a> </div>
+            <div id="place-name"> <%= place.name %> </div>
+            <div> Category: <%= place.category %> </div>
+            <div> <a href=<%= place.yelpUrl %> target="_blank">Yelp Website</a> </div>
                     
         <form id="" action="/notes" method="POST">
             <input class="form-control-sm" type="text" name="note" id="note inputSmall" size="40" placeholder="type your note here">

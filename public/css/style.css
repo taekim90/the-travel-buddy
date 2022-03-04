@@ -45,7 +45,7 @@ p {
 }
 
 .big-vertical {
-    margin: 3vh 0vh 0vh 0vh;
+    margin: 3vh 0vh 2vh 0vh;
 }
 
 .bigger-vertical{
@@ -61,6 +61,10 @@ p {
     color: red;
 }
 
+#header {
+    position: fixed;
+}
+
 #footer {
     position: fixed;
     bottom: 2vh;
@@ -70,4 +74,8 @@ p {
 
 #bigger-font {
     font-size: 2em
+}
+
+#place-name {
+    font-size: 1.3em
 }
