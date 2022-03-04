@@ -86,3 +86,6 @@ ___
 - https://www.yelp.com/developers/documentation/v3/get_started
 - https://github.com/Yelp/yelp-fusion#code-samples
 - https://github.com/tonybadguy/yelp-fusion
+- https://getbootstrap.com/
+- https://bootswatch.com/lux/
+- https://fontawesome.com/docs/web/

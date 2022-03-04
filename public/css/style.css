@@ -2,6 +2,7 @@
     /* background-color: blue; */
 }
 
+
 .center{
     display: flex;
     justify-content: center; 
@@ -9,6 +10,13 @@
 
 #error {
     display: flex;
-    /* justify-content: center; */
     color: red;
+}
+
+#footer {
+    display: flex;
+    position: fixed;
+    bottom: 2vh;
+    left: 50%;
+    justify-content: center;
 }
