@@ -21,6 +21,7 @@ router.post('/', async (req, res) => {
                 name: req.body.name,
                 yelpUrl: req.body.yelpUrl,
                 category: req.body.category,
+                address: req.body.address,
             }
         })   
         // console.log("User :", res.locals.currentUser.dataValues.id)

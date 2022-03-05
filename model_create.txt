@@ -1,6 +1,6 @@
 sequelize model:create --name user --attributes name:string,email:string,password:string
 
-sequelize model:create --name place --attributes name:string,yelpUrl:text,category:string
+sequelize model:create --name place --attributes name:string,yelpUrl:text,category:string,address:text
 
 sequelize model:create --name note --attributes userId:integer,placeId:integer,note:text,beenThere:boolean
 

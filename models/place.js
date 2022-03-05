@@ -18,7 +18,8 @@ module.exports = (sequelize, DataTypes) => {
   place.init({
     name: DataTypes.STRING,
     yelpUrl: DataTypes.TEXT,
-    category: DataTypes.STRING
+    category: DataTypes.STRING,
+    address: DataTypes.TEXT
   }, {
     sequelize,
     modelName: 'place',
