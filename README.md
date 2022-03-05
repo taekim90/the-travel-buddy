@@ -1,7 +1,8 @@
 # The Travel Buddy
 
 ## Deployed Link
-
+https://the-travel-buddy-1.herokuapp.com/
+___
 ## About
 The Travel Buddy is meant to help make it easier to plan out your travel plans (or your every day adventures).
 
@@ -47,13 +48,15 @@ ___
 | DELETE | /notes | Delete a created note
 | GET | /about | An about page
 ___
-
 ## ERDs
 ![ERD image](The-Travel-Buddy.drawio.png)
 ___
 
 ## Wireframes
 ![wireframe image](/The-Travel-Buddy-Wireframe.drawio.png)
+___
+## Final Product Images
+![home page image](/The-Travel-Buddy-Screenshot.png)
 ___
 ## Tech Utilized
 - HTML
@@ -137,3 +140,4 @@ ___
 - https://getbootstrap.com/
 - https://bootswatch.com/lux/
 - https://fontawesome.com/docs/web/
+- https://www.heroku.com/
