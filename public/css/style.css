@@ -19,7 +19,7 @@ p {
 }
 
 .container {
-    padding: 0 0 20% 0;
+    padding: 0 3% 20% 3%;
 }
 
 .places {
@@ -85,7 +85,6 @@ p {
     font-size: 1.4em
 }
 
-
 @media (max-width: 777px) {
     /* CSS that should be displayed if width is equal to or less than 800px goes here */
     .places {
@@ -98,6 +97,7 @@ p {
         display: flex;
         flex-direction: column;
     }
+
     .vertical-top-bottom {
         margin: 1vh 0vh 0vh 0vh;
     }
