@@ -76,7 +76,7 @@ ___
 ___
 
 ## Stetch Goals
-- [ ] Make the page responsive for smaller screen devices
+- [X] Make the page responsive for smaller screen devices
 - [ ] Add functionality to organize notes / filter
 - [ ] Implement a map API
 - [ ] Create a social page to share thoughts/ideas/opinions/reviews about visited locations
