@@ -17,6 +17,9 @@ module.exports = {
       category: {
         type: Sequelize.STRING
       },
+      address: {
+        type: Sequelize.TEXT
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

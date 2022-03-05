@@ -7,6 +7,7 @@
         <div id="place-name"> <%= place.name %> </div>
         <div> Category: <%= place.category %> </div>
         <div> <a href=<%= place.yelpUrl %> target="_blank">Yelp Website</a> </div>
+        <div> <a href="https://www.google.com/maps/search/<%= place.address %>" target="_blank">Google Maps</a> </div>
                     
         <form id="" action="/notes" method="POST">
             <input class="form-control-sm" type="text" name="note" id="note inputSmall" size="30" placeholder="type your note here">
