@@ -9,7 +9,8 @@
         <div>Review Count: <%= businesses.review_count %></div>
         <div>Price: <%= businesses.price %></div>
         <div>Address: <%= businesses.location.display_address %></div>
-        
+        <div><a href="https://www.google.com/maps/search/<%= businesses.location.display_address %>">Google Maps</a></div>
+
         <form id="" action="/places" method="POST">
             <input type="hidden" name="name" value="<%= businesses.name %>">
             <input type="hidden" name="yelpUrl" value="<%= businesses.url %>">
