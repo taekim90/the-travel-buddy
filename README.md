@@ -1,7 +1,7 @@
 # The Travel Buddy
 
 ## Deployed Link
-https://the-travel-buddy-1.herokuapp.com/
+https://the-travel-buddy-v1.herokuapp.com/
 ___
 ## About
 The Travel Buddy is meant to help make it easier to plan out your travel plans (or your every day adventures).
