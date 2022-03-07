@@ -21,7 +21,20 @@ The Travel Buddy is my attempt to trim the information and functionality packed 
 2. Add to lists of places to go / places you've been
 3. Make notes/comments
 ___
+Installation Instructions
+1. Fork and clone the repository
+2. Run `npm i` in your terminal to install dependencies
+3. Run `createdb the-travel-buddy` in your terminal to create a database
+4. Run `sequelize db:migrate` in your terminal to create the tables in the database
+5. Go to https://www.yelp.com/developers/documentation/v3/authentication and follow the instructions on the site to receive a Yelp API Key.
+6. Inside of the .env file, change the values of
+```
+YELP_API_KEY='*your given api key*'
+SECRET=*your text*
+PORT=*your port*
+```
 
+___
 ## User Stories
 - As a user, I want to be able to create a personalized account so that I can track/save my lists
 - As a user, I want to be able to add to/remove from a list of "Places"
