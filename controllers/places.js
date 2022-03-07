@@ -30,6 +30,7 @@ router.post('/', async (req, res) => {
                 id: res.locals.currentUser.id
             }
         })
+        // can take lines 28-32 and remove it and just put res.locals.currentUser into the "user" below
     await place.addUser(user)
     } catch (error) {
         console.log(error)
