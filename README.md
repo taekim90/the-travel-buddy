@@ -131,6 +131,7 @@ router.post('/', async (req, res) => {
                 name: req.body.name,
                 yelpUrl: req.body.yelpUrl,
                 category: req.body.category,
+                address: req.body.address,
             }
         })   
         const user = await db.user.findOne({
