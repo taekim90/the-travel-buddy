@@ -27,7 +27,7 @@ Installation Instructions
 3. Run `createdb the-travel-buddy` in your terminal to create a database
 4. Run `sequelize db:migrate` in your terminal to create the tables in the database
 5. Go to https://www.yelp.com/developers/documentation/v3/authentication and follow the instructions on the site to receive a Yelp API Key.
-6. Inside of the .env file, change the values of
+6. Inside of the .env file, replace the ** and the text in between
 ```
 YELP_API_KEY='*your given api key*'
 SECRET=*your text*
