@@ -21,7 +21,7 @@ The Travel Buddy is my attempt to trim the information and functionality packed 
 2. Add to lists of places to go / places you've been
 3. Make notes/comments
 ___
-Installation Instructions
+## Installation Instructions
 1. Fork and clone the repository
 2. Run `npm i` in your terminal to install dependencies
 3. Run `createdb the-travel-buddy` in your terminal to create a database
