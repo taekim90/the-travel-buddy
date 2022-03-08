@@ -32,7 +32,7 @@ router.post('/', async (req, res) => {
         })
         // can take lines 28-32 and remove it and just put res.locals.currentUser into the "user" below
     await place.addUser(user)
-    // res.sendStatus(200)
+    res.redirect('/places')
     } catch (error) {
         console.log(error)
         res.status(500).send(error)
